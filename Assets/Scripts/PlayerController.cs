@@ -64,6 +64,12 @@ public class PlayerController : MonoBehaviour
     }
     void Jump()
     {
-        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        //sprawdz czy znajduje siê na poziomie 0
+        if (transform.position.y <= Mathf.Epsilon)
+        {
+            //dodaj si³ê skoku
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
+        
     }
 }
