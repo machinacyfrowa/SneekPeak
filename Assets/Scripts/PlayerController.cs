@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     //silnik fizyczny dla obiektu gracza
     Rigidbody rb;
     //si³a skoku
-    public float jumpForce = 2f;
+    public float jumpForce = 5f;
 
     public float moveSpeed = 5f;
     // Start is called before the first frame update
@@ -50,9 +50,14 @@ public class PlayerController : MonoBehaviour
         //próbujemy u¿yc translate zamiast dodawac wspó³rzêdne
         transform.Translate(movement);
 
+        
+    }
+    //spróbujmy obejœæ problem z opóŸnieniem wejœcia poprzez przeniesienie go do update
+    void Update()
+    {
         //sprawdz czy nacisnieto spacjê (skok)
         //zwraca true jeœli zaczêliœmy naciskaæ spacjê w trakcie klatki animacji
-        if(Input.GetKey(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space))
         {
             Jump();
         }
