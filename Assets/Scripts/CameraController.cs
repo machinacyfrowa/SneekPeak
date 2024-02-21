@@ -23,7 +23,7 @@ public class CameraController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //pozycja kamery to pozyja gracza + offset
         //transform.position = player.position + cameraOffset;

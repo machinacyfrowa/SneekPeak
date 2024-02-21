@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //transform.position += new Vector3(1, 0, 0) * Time.deltaTime;
         //mo¿na proœciej: Vector3.right
