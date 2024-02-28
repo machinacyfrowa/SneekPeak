@@ -12,7 +12,7 @@ public class CCTVCameraController : MonoBehaviour
     public float turnAngle = 90;
 
     //czy kamera krêci siê w prawo
-    bool turningRight = true;
+    bool turningRight = !true;
 
     // Start is called before the first frame update
     void Start()
@@ -23,25 +23,10 @@ public class CCTVCameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(turningRight)
-            TurnRight();
-        else
-            TurnLeft();
-        CheckAngle();
-        Debug.Log("y: " + transform.eulerAngles.y);
+        // mdyfikujemy rotacjê obiektu za pomoc¹ funkcji PingPong, która generuje wartoœci
+        // oscyluj¹ce pomiêdzy 0 a 9, a nastêpnie mno¿ymy to przez 10 ¿eby uzyskaæ szybszy ruch
+        // i na koniec odejmujemy od wartoœci otrzymanej 45 stopni aby uzyskaæ ruch w zakresie -45 do 45
+        transform.rotation = Quaternion.Euler(new Vector3(0, Mathf.PingPong(Time.time, 9)*10-45, 0));
     }
-    void TurnRight()
-    {
-        //obróc o 1 stopieñ na sekunde * mno¿nik w prawo
-        transform.Rotate(Vector3.down * Time.deltaTime * turnSpeed);
-    }
-    void TurnLeft()
-    {
-        //obróc o 1 stopieñ na sekunde * mno¿nik w lewo
-        transform.Rotate(Vector3.up * Time.deltaTime * turnSpeed);
-    }
-    void CheckAngle()
-    {
-        //TODO: zwracaj kamerê kiedy osi¹gnie wychylenie turnangle/2
-    }
+
 }
