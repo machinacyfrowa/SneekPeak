@@ -24,38 +24,24 @@ public class CCTVCameraController : MonoBehaviour
     void Update()
     {
         if(turningRight)
-        {
             TurnRight();
-        } 
         else
-        {
             TurnLeft();
-        }
         CheckAngle();
+        Debug.Log("y: " + transform.eulerAngles.y);
     }
     void TurnRight()
     {
         //obróc o 1 stopieñ na sekunde * mno¿nik w prawo
-        transform.Rotate(Vector3.up * Time.deltaTime * turnSpeed);
+        transform.Rotate(Vector3.down * Time.deltaTime * turnSpeed);
     }
     void TurnLeft()
     {
         //obróc o 1 stopieñ na sekunde * mno¿nik w lewo
-        transform.Rotate(Vector3.down * Time.deltaTime * turnSpeed);
+        transform.Rotate(Vector3.up * Time.deltaTime * turnSpeed);
     }
     void CheckAngle()
     {
-        //jeœli wychylenie kamery przekroczy po³owê zakresu kamery w prawo to zmieñ kierunek
-        if(transform.eulerAngles.y > 45)
-        {
-            //krêæ siê w lewo
-            turningRight = false;
-        }
-        if(transform.eulerAngles.y < 315) 
-        {
-            //krêæ siê w prawo
-            turningRight = true;
-        }
-        Debug.Log("y: " + transform.eulerAngles.y + "turningRight: " + turningRight);
+        //TODO: zwracaj kamerê kiedy osi¹gnie wychylenie turnangle/2
     }
 }
