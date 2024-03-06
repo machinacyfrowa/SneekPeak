@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
         //zczytaj klawiaturê w osi poziomej:
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         //wyœwietl w konsoli stan klawiatury
-        Debug.Log(horizontalInput);
+        //Debug.Log(horizontalInput);
 
         //wylicz przesuniêcie w osi x
         Vector3 movement = Vector3.right * horizontalInput;
@@ -71,5 +71,9 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
         
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("BOOM");
     }
 }
