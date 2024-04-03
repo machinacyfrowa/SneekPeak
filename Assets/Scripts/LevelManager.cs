@@ -10,6 +10,7 @@ public class LevelManager : MonoBehaviour
 
     //elementy UI
     public GameObject timeCounter;
+    public GameObject gameOverOverlay;
 
     // Start is called before the first frame update
     void Start()
@@ -35,5 +36,9 @@ public class LevelManager : MonoBehaviour
         //funkcja odpowiedzialna za aktualizacjê interfejsu u¿ytkownika
 
         timeCounter.GetComponent<TextMeshProUGUI>().text = "Pozosta³y czas:" + Mathf.Floor(timeLeft).ToString();
+
+        //jeœli czas siê skoñczy³
+        if(timeLeft <= 0)
+            gameOverOverlay.SetActive(true);
     }
 }
