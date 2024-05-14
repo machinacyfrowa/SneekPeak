@@ -12,8 +12,12 @@ public class TileController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //overlay showing mouse over
         mouseOver = transform.Find("MouseOver").gameObject;
-        movementController = GameObject.Find("MovementController").GetComponent<MovementController>();
+        //player movement controller
+        movementController = GameObject.FindWithTag("Player").GetComponent<MovementController>();
+        //random rotation of tiles
+        transform.Find("FloorModel").localRotation = Quaternion.Euler(-90, 0, Random.Range(0, 4) * 90);
     }
 
     // Update is called once per frame

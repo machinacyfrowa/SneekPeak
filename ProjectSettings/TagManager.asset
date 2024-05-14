@@ -6,6 +6,7 @@ TagManager:
   tags:
   - LevelEnd
   - CameraView
+  - Ladder
   layers:
   - Default
   - TransparentFX
